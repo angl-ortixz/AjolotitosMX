@@ -1,0 +1,454 @@
+/* =============================================
+   VARIABLES: paleta y tipografía (según documento)
+   Morado: color principal (encabezados y botones)
+   Rosa: color secundario (acciones importantes)
+   Verde suave: secciones de conservación/naturaleza
+   Blanco: fondo principal
+============================================= */
+:root {
+  --color-morado: #6C4AB6;
+  --color-morado-oscuro: #4E3488;
+  --color-rosa: #E8598B;
+  --color-verde: #A8D5BA;
+  --color-blanco: #030005;
+  --color-texto: #2e2a32;
+  --color-fondo-suave: #f3ebeb;
+  --color-borde: #E4DEF2;
+
+  --fuente-titulos: 'Poppins', sans-serif;
+  --fuente-texto: 'Roboto', sans-serif;
+
+  --radio-borde: 12px;
+  --sombra: 0 4px 12px rgba(108, 74, 182, 0.12);
+}
+
+/* =============================================
+   RESET BÁSICO
+============================================= */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--fuente-texto);
+  font-size: 16px; /* tamaño mínimo de accesibilidad */
+  color: var(--color-texto);
+  background-color: var(--color-blanco);
+  line-height: 1.5;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.img-placeholder {
+  width: 100%;
+  min-height: 160px;
+  background-color: var(--color-fondo-suave);
+  border: 2px dashed var(--color-borde);
+  border-radius: var(--radio-borde);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+h1, h2, h3 {
+  font-family: var(--fuente-titulos);
+  color: var(--color-rosa);
+}
+
+/* =============================================
+   HEADER / NAVEGACIÓN
+============================================= */
+.header {
+  background-color: var(--color-morado);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: var(--sombra);
+}
+
+.header__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--fuente-titulos);
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: var(--color-blanco);
+}
+
+.nav__toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 28px;
+  height: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.nav__toggle span {
+  display: block;
+  height: 3px;
+  background-color: var(--color-blanco);
+  border-radius: 2px;
+}
+
+.nav__list {
+  display: flex;
+
+  align-items: center;
+  gap: 12px ;
+  flex-wrap: nowrap;
+}
+
+.nav__link {
+  color: var(--color-blanco);
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding: 8px 6px;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+}
+
+.nav__link:hover,
+.nav__link:focus-visible {
+  background-color: rgb(118, 5, 146);
+}
+
+
+
+/* =============================================
+   MAIN: LAYOUT DE DOS COLUMNAS
+============================================= */
+.main__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px 24px 64px;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+/* ----- Columna izquierda: contenido informativo ----- */
+.hero {
+  margin-bottom: 40px;
+}
+
+.hero__title {
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin-bottom: 16px;
+}
+
+.hero__text {
+  font-size: 1.05rem;
+  margin-bottom: 20px;
+  max-width: 60ch;
+}
+
+.hero__image img {
+  border-radius: var(--radio-borde);
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+width: 100%;
+  gap: 20px;
+}
+
+.card {
+  background-color: var(--color-morado-oscuro);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-borde);
+  padding: 16px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  width: 100%;
+  max-width: none;
+  min-width: 250px;
+  box-sizing: border-box;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--sombra);
+}
+
+.card__image {
+  margin-bottom: 12px;
+}
+
+.card__title {
+  font-size: 1.1rem;
+  margin-bottom: 6px;
+}
+
+.card__text {
+  font-size: 0.9rem;
+}
+
+/* ----- Columna derecha: acciones del usuario ----- */
+.col--actions {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  position: sticky;
+  top: 100px;
+  align-self: flex-start;
+}
+
+.panel {
+  background-color: var(--color-fondo-suave);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-borde);
+  padding: 24px;
+}
+
+.panel--voluntariado {
+  background-color: #FDEDF3; /* tono rosa suave para acción importante */
+}
+
+.panel--noticias {
+  background-color: #b361ff; /* tono verde suave para sección relacionada con conservación */
+}
+
+.panel__title {
+  font-size: 1.3rem;
+  margin-bottom: 16px;
+}
+
+/* Formularios */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+   
+}
+
+.form__label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-top: 8px;
+  
+}
+
+.form__input {
+  font-family: var(--fuente-texto);
+  font-size: 1rem;
+  padding: 10px 12px;
+  border: 1px solid var(--color-borde);
+  border-radius: 8px;
+  background-color: var(--color-blanco);
+  font-size: 16px;
+  color: #ffff;
+}
+
+.form__input:focus-visible {
+  outline: 2px solid var(--color-morado);
+  outline-offset: 1px;
+  
+}
+
+.form__textarea {
+  resize: vertical;
+}
+
+.form__feedback {
+  margin-top: 8px;
+  font-size: 0.9rem;
+  min-height: 1.2em;
+  color: var(--color-morado-oscuro);
+  
+}
+
+/* Botones: mismo estilo base, tamaño accesible */
+.btn {
+  margin-top: 16px;
+  padding: 14px 20px;
+  font-family: var(--fuente-titulos);
+  font-weight: 600;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+.btn--primary {
+  background-color: var(--color-morado);
+  color: var(--color-blanco);
+}
+
+.btn--secondary {
+  background-color: var(--color-rosa);
+  color: var(--color-blanco);
+}
+
+/* Noticias */
+.news-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.news-item {
+  display: flex;
+  gap: 12px;
+}
+
+.news-item__img {
+  width: 80px;
+  height: 80px;
+  min-height: 80px;
+  flex-shrink: 0;
+}
+
+.news-item__title {
+  font-size: 1rem;
+  margin-bottom: 4px;
+}
+
+.news-item__text {
+  font-size: 0.85rem;
+}
+
+/* =============================================
+   FOOTER
+============================================= */
+.footer {
+  background-color: var(--color-morado-oscuro);
+  color: var(--color-blanco);
+  text-align: center;
+  padding: 24px;
+  font-size: 0.9rem;
+}
+
+/* =============================================
+   RESPONSIVE
+============================================= */
+@media (max-width: 900px) {
+  .main__container {
+    grid-template-columns: 1fr;
+  }
+
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .nav__toggle {
+    display: flex;
+  }
+
+  .nav {
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+
+  .nav.is-open {
+    max-height: 500px;
+  }
+
+  .nav__list {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 12px 0;
+  }
+
+  .header__container {
+    flex-wrap: wrap;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
+p{
+  color: var(--color-borde);
+}
+/* El fondo oscuro que bloquea la pantalla */
+.modal-alerta {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center; align-items: center;
+    z-index: 1000;
+}
+
+/* La tarjeta del mensaje */
+.modal-contenido {
+    background-color: #1e1e2f; /* Fondo oscuro pro */
+    border: 2px solid #6a1b9a; /* Borde morado */
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+}
+
+.modal-contenido h3 {
+    color: #e04b75; /* Título rosa */
+    margin-top: 0;
+    font-size: 24px;
+}
+
+.modal-contenido p {
+    color: #ffffff; /* Texto blanco */
+    margin: 15px 0 25px 0;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/* El botón de cerrar */
+.modal-btn {
+    background-color: #6a1b9a; /* Botón morado */
+    color: white;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.modal-btn:hover {
+    background-color: #e04b75; /* Cambia a rosa al pasar el mouse */
+}
